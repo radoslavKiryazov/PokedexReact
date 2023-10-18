@@ -7,12 +7,14 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
+    <main className="bg-pokevista bg-contain h-[100vh]">
       <NavBar/>
-      <main className="flex justify-center items-center w-full bg-pokevista bg-contain h-[92vh]">
+      <div className="flex justify-center items-center w-full ">
         <Routes>
           <Route index element={<Home/>}/>
           <Route path="about" element={<About/>}/>
         </Routes>
+        </div>
       </main>
     </BrowserRouter>
   );
