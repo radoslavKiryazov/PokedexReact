@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
     <main className="bg-pokevista bg-contain h-[100vh]">
       <NavBar/>
-      <div className="flex justify-center items-center w-full ">
+      <div className="flex justify-center items-center w-full p-24">
         <Routes>
           <Route index element={<Home/>}/>
           <Route path="about" element={<About/>}/>
