@@ -1,6 +1,6 @@
 import IDbox from "./IDbox"
 import TypeBox from "./TypeBox"
-import {capitalizeFirstLetter} from "../helperFunctions"
+import {capitalizeFirstLetter} from "../utills/helperFunctions"
 import { useEffect, useState } from "react"
 
 const PokeCard = ({url}) => {
