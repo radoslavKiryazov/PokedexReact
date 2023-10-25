@@ -35,7 +35,7 @@ const PokeGrid = () => {
     }
     return (
         <>
-        <div className="grid grid-cols-4 gap-7">
+        <div className="grid grid-cols-4 gap-9">
         {pokemonData.map((pokemon, index) => (
             <PokeCard key={index} url={pokemon.url}/>
         ))}
