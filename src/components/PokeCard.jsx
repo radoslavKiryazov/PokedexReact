@@ -23,7 +23,7 @@ const PokeCard = ({url}) => {
             <h1 className="text-xl font-mono text-black">{capitalizeFirstLetter(pokemon.name)}</h1>
             <div className="flex flex-row space-x-2">
             {pokemon.types.map((type,index) => (
-                <TypeBox value={capitalizeFirstLetter(type.type.name)} key={index}/>
+                <TypeBox image={type.type.name} key={index}/>
             ))}
             </div>
             </div>
