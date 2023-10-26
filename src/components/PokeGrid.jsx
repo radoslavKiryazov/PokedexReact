@@ -6,18 +6,22 @@ const PokeGrid = () => {
         onNextPage,
         onPreviousPage,
         nextPageData,
-        previousPageData} = usePokeGrid();
+        previousPageData,
+        pageNumber} = usePokeGrid();
         
     return (
         <>
-        <div className="grid grid-cols-4 gap-9">
-        {pokemonData.map((pokemon, index) => (
-            <PokeCard key={index} url={pokemon.url}/>
+        <div className="grid grid-cols-4 gap-5">
+        {pokemonData.map((pokemon) => (
+            <PokeCard url={pokemon.url} key={pokemon}/>
         ))}
         </div>
-        <div className="flex flex-row space-x-3 justify-end m-5">
+        <div className="flex flex-row space-x-3 justify-between m-5 animate-pulse">
+        {pageNumber}
+        <div className="space-x-5">
         {previousPageData && (<button className="border" onClick={onPreviousPage}> Previous </button>)}
         {nextPageData && (<button className="border" onClick={onNextPage}> Next </button>)}
+        </div>
         </div>
         </>  
     

@@ -1,5 +1,3 @@
-const base_url = "https://pokeapi.co/api/v2/";
-
 export const getPokemonData = async (url) => {
   try {
     const response = await fetch(url);

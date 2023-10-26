@@ -1,9 +1,9 @@
-import PokeGrid from "./PokeGrid";
+import PokeGrid from "../components/PokeGrid";
 
 const Home = () => {
 
     return (
-        <div className="flex flex-col bg-orange-300">
+        <div className="flex flex-col">
         <PokeGrid/>
         </div>
     

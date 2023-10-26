@@ -1,7 +1,7 @@
 const IDbox = ({ id }) => {
     return (
         <div>
-        <p className="font-bold text-black/50 font-mono">#{id}</p>
+        <p className="font-extrabold text-2xl font-pokemonId animate-fade-right">#{id}</p>
         </div>
     );
 }

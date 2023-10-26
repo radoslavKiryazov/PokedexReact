@@ -40,7 +40,7 @@ const TypeBox = ({image, key}) => {
         'water': water,
     }
     return(
-        <img className="w-[70px] h-[20px]" src={map[image]} alt={key}/>
+        <img className="w-[70px] h-[20px] animate-fade-right" src={map[image]} alt={key}/>
     );
 
 }
