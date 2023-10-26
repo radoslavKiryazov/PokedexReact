@@ -29,7 +29,6 @@ module.exports = {
         psychic: "#F85888",
         rock: "#B8A038",
         water: "#6890F0",
-        white: "#FFFFFF",
       },
     },
   },

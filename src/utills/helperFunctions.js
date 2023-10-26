@@ -2,46 +2,46 @@ export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-export const getColorFromType = (type) => {
+export const colorVariantConverter = (type) => {
   switch (type) {
     default:
       return "black";
 
     case "bug":
-      return "#A8B820";
+      return "bg-bug/80";
     case "dark":
-      return "#705848";
+      return "bg-dark/80";
     case "dragon":
-      return "#7038F8";
+      return "bg-dragon/80";
     case "electric":
-      return "#F8D030";
+      return "bg-electric/80";
     case "fairy":
-      return "#EE99AC";
+      return "bg-fairy/80";
     case "fire":
-      return "#F08030";
+      return "bg-fire/80";
     case "fighting":
-      return "#C03028";
+      return "bg-fighting/80";
     case "flying":
-      return "#A890F0";
+      return "bg-flying/80";
     case "ghost":
-      return "#705898";
+      return "bg-ghost/80";
     case "grass":
-      return "#78C850";
+      return "bg-grass/80";
     case "ground":
-      return "#E0C068";
+      return "bg-ground/80";
     case "ice":
-      return "#98D8D8";
+      return "bg-ice/80";
     case "normal":
-      return "#A8A878";
+      return "bg-normal/80";
     case "poison":
-      return "#A040A0";
+      return "bg-poison/80";
     case "psychic":
-      return "#F85888";
+      return "bg-psychic/80";
     case "rock":
-      return "#B8A038";
+      return "bg-rock/80";
     case "steel":
-      return "#B8B8D0";
+      return "bg-steel/80";
     case "water":
-      return "#6890F0";
+      return "bg-water/80";
   }
 };
