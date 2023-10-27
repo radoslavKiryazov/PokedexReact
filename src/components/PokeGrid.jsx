@@ -1,20 +1,21 @@
 import PokeCard from "./PokeCard";
 import usePokeGrid from "../customHooks/usePokeGrid";
 
-const PokeGrid = () => {
+const PokeGrid = ({onPokemonSelected}) => {
     const {pokemonData,
         onNextPage,
         onPreviousPage,
         nextPageData,
         previousPageData,
         pageNumber} = usePokeGrid();
+
+        
         
     return (
         <>
         <div className="grid grid-cols-4 gap-5">
-        {pokemonData.map((pokemon) => (
-            <PokeCard url={pokemon.url} key={pokemon}/>
-        ))}
+        {pokemonData.map((pokemon) => 
+        (<PokeCard url={pokemon.url} key={pokemon.name} onPokemonSelected={onPokemonSelected} />))}
         </div>
         <div className="flex flex-row space-x-3 justify-between m-5 animate-pulse">
         {pageNumber}

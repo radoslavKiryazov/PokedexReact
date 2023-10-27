@@ -4,9 +4,8 @@ import {capitalizeFirstLetter, colorVariantConverter} from "../utills/helperFunc
 import { useEffect, useState } from "react"
 import pokeball from "../assets/pokeball.png"
 
-const PokeCard = ({url}) => {
+const PokeCard = ({url, onPokemonSelected}) => {
     const [pokemon, setPokemon] = useState(null);
-
     const colorVariant = pokemon && colorVariantConverter(pokemon.types[0].type.name);
 
     useEffect(() => {
@@ -20,13 +19,13 @@ const PokeCard = ({url}) => {
 
             <>
             {pokemon && (
-            <div key={pokemon.id} className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer hover:animate-pulse`}>
+            <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer hover:animate-pulse`} onClick={() => onPokemonSelected(pokemon)}>
             <div className="flex justify-center flex-col w-[190px] -space-y-0">
             <IDbox id={pokemon.id}/> 
             <h1 className="text-xl font-pokemonName text animate-fade-right">{capitalizeFirstLetter(pokemon.name)}</h1>
             <div className="flex flex-row space-x-2">
-            {pokemon.types.map((type) => (
-                <TypeBox image={type.type.name}/>
+            {pokemon.types.map((type,index) => (
+                <TypeBox image={type.type.name} key={index}/>
             ))}
             </div>
             </div>

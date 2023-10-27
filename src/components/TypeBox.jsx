@@ -18,7 +18,7 @@ import steel from '../assets/typeIcons/steel.png'
 import water from '../assets/typeIcons/water.png'
 
 
-const TypeBox = ({image, key}) => {
+const TypeBox = ({image}) => {
     const map = {
         'bug': bug,
         'dark': dark,
@@ -40,7 +40,7 @@ const TypeBox = ({image, key}) => {
         'water': water,
     }
     return(
-        <img className="w-[70px] h-[20px] animate-fade-right" src={map[image]} alt={key}/>
+        <img className="w-[70px] h-[20px] animate-fade-right" src={map[image]} alt="typeImage"/>
     );
 
 }
