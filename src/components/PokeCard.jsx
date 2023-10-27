@@ -1,28 +1,21 @@
 import IDbox from "./IDbox"
 import TypeBox from "./TypeBox"
-import {capitalizeFirstLetter, colorVariantConverter} from "../utills/helperFunctions"
-import { useEffect, useState } from "react"
+import usePokeCard from "../customHooks/usePokeCard"
 import pokeball from "../assets/pokeball.png"
+import { usePokemonContext } from "../context/PokemonContext"
 
-const PokeCard = ({url, onPokemonSelected}) => {
-    const [pokemon, setPokemon] = useState(null);
-    const colorVariant = pokemon && colorVariantConverter(pokemon.types[0].type.name);
 
-    useEffect(() => {
-    fetch(url)
-    .then(response => response.json())
-    .then(data => setPokemon(data));
-
-    }, [url])
+const PokeCard = ({url}) => {
+   const {pokemon, colorVariant, name} = usePokeCard(url);
+   const {setSelectedPokemon } = usePokemonContext();
 
     return (
-
             <>
             {pokemon && (
-            <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer hover:animate-pulse`} onClick={() => onPokemonSelected(pokemon)}>
+            <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer hover:animate-pulse`} onClick={() => setSelectedPokemon(pokemon)}>
             <div className="flex justify-center flex-col w-[190px] -space-y-0">
             <IDbox id={pokemon.id}/> 
-            <h1 className="text-xl font-pokemonName text animate-fade-right">{capitalizeFirstLetter(pokemon.name)}</h1>
+            <h1 className="text-xl font-pokemonName text animate-fade-right">{name}</h1>
             <div className="flex flex-row space-x-2">
             {pokemon.types.map((type,index) => (
                 <TypeBox image={type.type.name} key={index}/>

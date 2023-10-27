@@ -1,17 +1,12 @@
 import PokeGrid from "../components/PokeGrid";
-import {useState} from 'react';
+import {usePokemonContext} from "../context/PokemonContext";
 const Home = () => {
-    const [selectedPokemon, setSelectedPokemon] = useState(null);
-
-    const onPokemonSelected = (pokemon) => {
-        console.log(pokemon.name);
-        setSelectedPokemon(pokemon);
-    }
+    const {selectedPokemon} = usePokemonContext();
 
     return (
         <div className="flex flex-col">
         {selectedPokemon ? (<h1> {selectedPokemon.name}</h1>) : 
-        (<PokeGrid onPokemonSelected={onPokemonSelected}/>)}
+        (<PokeGrid/>)}
         </div>
     
     );
