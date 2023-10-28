@@ -1,11 +1,14 @@
 import PokeGrid from "../components/PokeGrid";
+import PokemonDisplay from "../components/PokemonDisplay";
 import {usePokemonContext} from "../context/PokemonContext";
+
 const Home = () => {
     const {selectedPokemon} = usePokemonContext();
 
     return (
-        <div className="flex flex-col ">
-        {selectedPokemon ? (<h1> {selectedPokemon.name}</h1>) : 
+        <div className="flex flex-col">
+        {selectedPokemon ? 
+        (<PokemonDisplay pokemon={selectedPokemon}/>) : 
         (<PokeGrid/>)}
         </div>
     
