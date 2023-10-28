@@ -4,7 +4,7 @@ const Home = () => {
     const {selectedPokemon} = usePokemonContext();
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
         {selectedPokemon ? (<h1> {selectedPokemon.name}</h1>) : 
         (<PokeGrid/>)}
         </div>

@@ -1,5 +1,7 @@
 import PokeCard from "./PokeCard";
 import usePokeGrid from "../customHooks/usePokeGrid";
+import backbutton from '../assets/backbutton.png'
+import forwardbutton from '../assets/forwardbutton.png'
 
 const PokeGrid = () => {
     const {pokemonData,
@@ -13,15 +15,18 @@ const PokeGrid = () => {
         
     return (
         <>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="flex flex-row ">
+        <div className="flex items-center justify-center w-10">
+        {previousPageData && (<button className="border" onClick={onPreviousPage}><img src={backbutton} alt="backbutton"/></button>)}
+        </div>
+
+        <div className="grid grid-cols-5 gap-1 w-[1350px] h-[500px]">
         {pokemonData.map((pokemon) => 
         (<PokeCard url={pokemon.url} key={pokemon.name}/>))}
         </div>
-        <div className="flex flex-row space-x-3 justify-between m-5 animate-pulse">
-        {pageNumber}
-        <div className="space-x-5">
-        {previousPageData && (<button className="border" onClick={onPreviousPage}> Previous </button>)}
-        {nextPageData && (<button className="border" onClick={onNextPage}> Next </button>)}
+
+        <div className="flex items-center justify-center w-10">
+        {nextPageData && (<button className="border" onClick={onNextPage}><img src={forwardbutton} alt="forwardbutton"/></button>)}
         </div>
         </div>
         </>  
