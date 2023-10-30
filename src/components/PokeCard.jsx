@@ -23,7 +23,7 @@ const PokeCard = ({url}) => {
 
     return (
             <>
-            {pokemon && (
+            {pokemon ? (
             <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer animate-fade`} onClick={() => setSelectedPokemon(pokemon)} onMouseEnter={accelerate} onMouseLeave={decelerate}>
             <div className="flex justify-center flex-col w-[190px] -space-y-0">
             <IDbox id={pokemon.id}/> 
@@ -36,9 +36,13 @@ const PokeCard = ({url}) => {
             </div>
             <div className="flex items-center pb-5">
             <img src={pokeball} alt="pokeball" className={`relative w-[150px] h-[100px] opacity-40 animate-spin ${speed}`}/>
-            <img className="w-[100px] h-[100px] absolute animate-fade-down" src={pokemon.sprites.other.dream_world.front_default} alt="PokemonImage"/>
+            <img className="w-[100px] h-[100px] absolute animate-fade-down" src={pokemon.sprites.other["official-artwork"].front_default} alt="PokemonImage"/>
             </div>
             </div>
+            ): (
+                <div className={`flex flex-row bg-gray-200/70 w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer animate-fade`}>
+                <h1 className="font-pokemonName text-xl"> Encountering a wild Pokémon! </h1>
+                </div>
             )}
             </>
     

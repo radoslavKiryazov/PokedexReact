@@ -6,6 +6,7 @@ module.exports = {
       backgroundImage: {
         "poke-pattern": "url('/public/pokepattern.jpeg')",
         pokevista: "url('/public/vista.jpg')",
+        dots: "url('/public/dots.png')",
       },
       fontFamily: {
         pokemonName: ["Handjet"],
