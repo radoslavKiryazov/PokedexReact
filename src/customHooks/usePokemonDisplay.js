@@ -17,7 +17,10 @@ const usePokemonDisplay = (url) => {
       });
   }, []);
 
-  return { formatWeight, species };
+  const formatHeight = (decimeters) => {
+    return Math.round(decimeters * 0.1 * 100) / 100 + " m";
+  };
+  return { formatWeight, species, formatHeight };
 };
 
 export default usePokemonDisplay;

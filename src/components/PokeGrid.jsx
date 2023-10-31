@@ -20,7 +20,7 @@ const PokeGrid = () => {
         {previousPageData && (<button className="border-2 rounded-full" onClick={onPreviousPage}><img className="w-7 h-7" src={backbutton} alt="backbutton"/></button>)}
         </div>
 
-        <div className="grid grid-cols-4 gap-3 h-fil p-2 w-[1050px] h-[600px] md:h-[500px] ">
+        <div className="md:grid grid-cols-4 gap-3 h-fil p-2 w-[1050px] h-[600px] md:h-[500px] lg:w-[1050px] lg:h-[500px]">
         {pokemonData.map((pokemon) => 
         (<PokeCard url={pokemon.url} key={pokemon.name}/>))}
         </div>
