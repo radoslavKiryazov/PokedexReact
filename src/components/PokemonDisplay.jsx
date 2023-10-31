@@ -6,6 +6,7 @@ import height from "../assets/height.png";
 import weight from "../assets/weight.png";
 import usePokemonDisplay from "../customHooks/usePokemonDisplay";
 import { useEffect, useState } from "react";
+import StatBox from "./StatBox";
 
 
 const PokemonDisplay = ({ pokemon }) => {
@@ -17,10 +18,7 @@ const PokemonDisplay = ({ pokemon }) => {
             
             <div className="flex flex-col items-center bg-blue-100 p-2 w-[300px] h-[500px]">  
             <h1 className="font-pokemonName text-4xl"> STATS </h1>
-            <p>HP</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-  <div className="bg-blue-600 h-2.5 rounded-full w-[45%]"></div>
-</div>
+            <StatBox stat={pokemon.stats[0].stat.name} value={pokemon.stats[0].base_stat}/>
             <p>Attack</p>
             <p>Defense</p>
             <p>Special Attack</p>
