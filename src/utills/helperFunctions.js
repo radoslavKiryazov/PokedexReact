@@ -1,3 +1,5 @@
+export const pokemonMap = new Map();
+
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
@@ -44,4 +46,9 @@ export const colorVariantConverter = (type) => {
     case "water":
       return "bg-water/80";
   }
+};
+
+export const statPercent = (stat) => {
+  const value = `w-[${stat}%]`;
+  return value;
 };

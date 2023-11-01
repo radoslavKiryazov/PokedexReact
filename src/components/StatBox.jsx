@@ -1,15 +1,13 @@
+
 const StatBox =  ({stat, value}) => {
-    const statValue = value === 45 && "w-[45%]" 
-
-
-
     return (
-        <>
-        <p>{stat}</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-  <div className={`bg-blue-600 h-2.5 rounded-full ${statValue}`}></div>
+        <div className="flex flex-col w-full">
+            <div className="flex flex-row justify-between font-pokemonName text-xl pr-1">
+                <p>{stat.toUpperCase()}</p>
+                <p>{value}</p>
+            </div>
+            <progress className="w-full [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg [&::-webkit-progress-bar]:bg-slate-400" value={value} max="255"></progress>
 </div>
-</>
 
     );
 }

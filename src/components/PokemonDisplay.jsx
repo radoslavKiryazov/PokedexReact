@@ -5,8 +5,9 @@ import {
 import height from "../assets/height.png";
 import weight from "../assets/weight.png";
 import usePokemonDisplay from "../customHooks/usePokemonDisplay";
-import { useEffect, useState } from "react";
 import StatBox from "./StatBox";
+import DisplayTypeBox from "./DisplayTypeBox";
+import EvolutionChain from "./EvolutionChain";
 
 
 const PokemonDisplay = ({ pokemon }) => {
@@ -18,14 +19,13 @@ const PokemonDisplay = ({ pokemon }) => {
             
             <div className="flex flex-col items-center bg-blue-100 p-2 w-[300px] h-[500px]">  
             <h1 className="font-pokemonName text-4xl"> STATS </h1>
-            <StatBox stat={pokemon.stats[0].stat.name} value={pokemon.stats[0].base_stat}/>
-            <p>Attack</p>
-            <p>Defense</p>
-            <p>Special Attack</p>
-            <p>Special Defense</p>
-            <p>Speed</p>
-
-            
+            {pokemon.stats.map((stat) => (<StatBox stat={stat.stat.name} value={stat.base_stat}/>))}
+            <h1 className="font-pokemonName text-4xl pt-5"> TYPE </h1>
+            <div className="flex flex-row space-x-3">
+                {pokemon.types.map((type, slot) => (
+                <DisplayTypeBox type={type.type.name} key={type.slot}/>
+            ))}
+            </div>
             </div>
             
             
@@ -53,7 +53,12 @@ const PokemonDisplay = ({ pokemon }) => {
             
             
         </div>
-        <div className="flex flex-col bg-blue-100 p-1 w-[300px] h-[500px]">  
+        <div className="flex flex-col bg-blue-100 p-1 w-[300px] h-[500px] items-center"> 
+        <h1 className="font-pokemonName text-4xl pt-5"> EVOLUTIONS: </h1> 
+    {species.evolution_chain && species.evolution_chain.url && (
+        <EvolutionChain chain={species.evolution_chain.url} />
+    )}
+
         </div>
         </div>
         </>

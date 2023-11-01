@@ -1,5 +1,5 @@
 import IDbox from "./IDbox"
-import TypeBox from "./TypeBox"
+import CardTypeBox from "./CardTypeBox"
 import usePokeCard from "../customHooks/usePokeCard"
 import pokeball from "../assets/pokeball.png"
 import { usePokemonContext } from "../context/PokemonContext"
@@ -7,7 +7,7 @@ import { useState } from "react"
 
 
 const PokeCard = ({url}) => {
-   const {pokemon, colorVariant, name} = usePokeCard(url);
+   const {pokemon, colorVariant, name, caching} = usePokeCard(url);
    const {setSelectedPokemon } = usePokemonContext();
    const [speed, setSpeed] = useState('animate-duration-[10000ms]');
 
@@ -26,11 +26,12 @@ const PokeCard = ({url}) => {
             {pokemon ? (
             <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer animate-fade`} onClick={() => setSelectedPokemon(pokemon)} onMouseEnter={accelerate} onMouseLeave={decelerate}>
             <div className="flex justify-center flex-col w-[190px] -space-y-0">
+            {caching}
             <IDbox id={pokemon.id}/>
             <h1 className="text-xl font-pokemonName text animate-fade-right">{name}</h1>
             <div className="flex flex-row space-x-2">
             {pokemon.types.map((type,index) => (
-                <TypeBox image={type.type.name} key={index}/>
+                <CardTypeBox image={type.type.name} key={index}/>
             ))}
             </div>
             </div>
