@@ -15,7 +15,7 @@ const usePokemonDisplay = (url) => {
       .catch((error) => {
         console.log("Error fetching Pokemon species:", error);
       });
-  }, []);
+  }, [url]);
 
   const formatHeight = (decimeters) => {
     return Math.round(decimeters * 0.1 * 100) / 100 + " m";

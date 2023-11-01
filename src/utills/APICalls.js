@@ -17,7 +17,7 @@ export const getPokemonData = async (url) => {
 
 export const getPokemon = async (url) => {
   if (pokemonMap.has(url)) {
-    console.log(`${url}from the cache`);
+    console.log(`${url} from the cache`);
     return pokemonMap.get(url);
   }
   try {

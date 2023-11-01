@@ -23,7 +23,7 @@ const PokemonDisplay = ({ pokemon }) => {
             <h1 className="font-pokemonName text-4xl pt-5"> TYPE </h1>
             <div className="flex flex-row space-x-3">
                 {pokemon.types.map((type, slot) => (
-                <DisplayTypeBox type={type.type.name} key={type.slot}/>
+                <DisplayTypeBox type={type.type.name} key={slot}/>
             ))}
             </div>
             </div>
@@ -55,7 +55,7 @@ const PokemonDisplay = ({ pokemon }) => {
         </div>
         <div className="flex flex-col bg-blue-100 p-1 w-[300px] h-[500px] items-center"> 
         <h1 className="font-pokemonName text-4xl pt-5"> EVOLUTIONS: </h1> 
-    {species.evolution_chain && species.evolution_chain.url && (
+        {species.evolution_chain && (
         <EvolutionChain chain={species.evolution_chain.url} />
     )}
 

@@ -4,6 +4,13 @@ export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+export const replaceSpeciesWithPokemon = (link) => {
+  if (link === null) {
+    return null;
+  }
+  const updatedURL = link.replace(/\/pokemon-species\//, "/pokemon/");
+  return updatedURL;
+};
 export const colorVariantConverter = (type) => {
   switch (type) {
     default:
