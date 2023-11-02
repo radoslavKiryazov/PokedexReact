@@ -71,8 +71,11 @@ const PokemonDisplay = ({ pokemon }) => {
             </div>
             
         <div className="flex flex-col bg-blue-100 p-2 w-[300px] h-[510px] items-center rounded-3xl "> 
-        <h1 className="font-pokemonName text-4xl"> MOVES: </h1> 
-        TODO
+        <h1 className="font-pokemonName text-4xl"> ABILITIES: </h1> 
+        {pokemon.abilities.map((ability) => (
+            <p key={ability.ability.name}>{ability.ability.name}</p>
+
+        ))}
 
         </div>
         </div>

@@ -24,7 +24,7 @@ const EvolutionElement = ({ url }) => {
         {pokemon && (
             <div className="flex flex-col items-center justify-center font-pokemonName text-xl -space-y-4 pb-2 animate-ease-in-out cursor-pointer" onClick={onClick}>
                 <img className='w-[100px] h-[100px] animate-fade-down' src={pokemon.sprites.front_default} alt={pokemon.name} />
-                <p className='animate-fade-up'>{capitalizeFirstLetter(pokemon.name)}</p>
+                <p className='animate-fade-up text-base'>{capitalizeFirstLetter(pokemon.name)}</p>
             </div>
         )}
         </>

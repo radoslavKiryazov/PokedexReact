@@ -3,23 +3,10 @@ import CardTypeBox from "./CardTypeBox"
 import usePokeCard from "../customHooks/usePokeCard"
 import pokeball from "../assets/pokeball.png"
 import { usePokemonContext } from "../context/PokemonContext"
-import { useState } from "react"
-
 
 const PokeCard = ({url}) => {
-   const {pokemon, colorVariant, name} = usePokeCard(url);
-   const {setSelectedPokemon } = usePokemonContext();
-   const [speed, setSpeed] = useState('animate-duration-[10000ms]');
-
-   const accelerate = () => {
-    setSpeed('animate-duration-[900ms]')
-
-   }
-
-   const decelerate = () => {
-    setSpeed('animate-duration-[10000ms]')
-
-   }
+ const {pokemon, colorVariant, name, speed, accelerate, decelerate} = usePokeCard(url);
+ const {setSelectedPokemon } = usePokemonContext();
 
     return (
             <>

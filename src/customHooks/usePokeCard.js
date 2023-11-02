@@ -10,6 +10,7 @@ const usePokeCard = (url) => {
   const colorVariant =
     pokemon && colorVariantConverter(pokemon.types[0].type.name);
   const name = pokemon && capitalizeFirstLetter(pokemon.name);
+  const [speed, setSpeed] = useState("animate-duration-[10000ms]");
 
   useEffect(() => {
     getPokemon(url).then((data) => {
@@ -17,10 +18,21 @@ const usePokeCard = (url) => {
     });
   }, [url]);
 
+  const accelerate = () => {
+    setSpeed("animate-duration-[900ms]");
+  };
+
+  const decelerate = () => {
+    setSpeed("animate-duration-[10000ms]");
+  };
+
   return {
     pokemon,
     colorVariant,
     name,
+    speed,
+    accelerate,
+    decelerate,
   };
 };
 
