@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import {getPokemon} from '../utills/APICalls';
+import { usePokemonContext } from '../context/PokemonContext';
 
 
-const EvolutionChain = ({ url }) => {
+const EvolutionElement = ({ url }) => {
     const [pokemon, setPokemon] = useState(null);
+        const {setSelectedPokemon} = usePokemonContext();
 
     useEffect(() => {
         getPokemon(url)
@@ -12,12 +14,16 @@ const EvolutionChain = ({ url }) => {
         })
     }, [url]);
 
+    const onClick = () => {
+        setSelectedPokemon(pokemon);
+    }
+
     return (
         <>
         {pokemon && (
-            <div className="flex flex-col items-center justify-center font-pokemonName -space-y-6">
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-                <p>{pokemon.name}</p>
+            <div className="flex flex-col items-center justify-center font-pokemonName text-xl -space-y-4 animate-ease-in-out" onClick={onClick}>
+                <img className='w-[100px] h-[100px] animate-fade-down' src={pokemon.sprites.front_default} alt={pokemon.name} />
+                <p className='animate-fade-up'>{pokemon.name}</p>
             </div>
         )}
         </>
@@ -34,4 +40,4 @@ const EvolutionChain = ({ url }) => {
     
         )
 }
-export default EvolutionChain;
+export default EvolutionElement;

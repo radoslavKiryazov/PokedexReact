@@ -7,7 +7,6 @@ const EvolutionChain = ({ chain }) => {
     const [basePokemon, setBasePokemon] = useState(null);
     const [evolvesTo, setEvolvesTo] = useState(null);
     const [evolutions, setEvolutions] = useState([]);
-    const test = replaceSpeciesWithPokemon(basePokemon);
 
     
     useEffect(() => {
@@ -27,8 +26,12 @@ const EvolutionChain = ({ chain }) => {
 
     return (
         <>
-        <div className="">
+        <div className="flex flex-row -space-x-5">
             {basePokemon && <EvolutionElement url={replaceSpeciesWithPokemon(basePokemon)}/> }
+            {evolvesTo && <EvolutionElement url={replaceSpeciesWithPokemon(evolvesTo)}/> }
+            {evolutions.map((evolution) => (
+                <EvolutionElement url={replaceSpeciesWithPokemon(evolution.species.url)} key={evolution.species.name}/>
+            ))}
         </div>
         </>
 

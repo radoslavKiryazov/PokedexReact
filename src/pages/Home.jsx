@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className="flex flex-col">
         {selectedPokemon ? 
-        (<PokemonDisplay pokemon={selectedPokemon}/>) : 
+        (<PokemonDisplay pokemon={selectedPokemon} key={selectedPokemon.id}/>) : 
         (<PokeGrid/>)}
         </div>
     
