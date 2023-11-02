@@ -1,5 +1,4 @@
 import {
-    colorVariantConverter,
     capitalizeFirstLetter,
   } from "../utills/helperFunctions";
 import height from "../assets/height.png";
@@ -8,16 +7,25 @@ import usePokemonDisplay from "../customHooks/usePokemonDisplay";
 import StatBox from "./StatBox";
 import DisplayTypeBox from "./DisplayTypeBox";
 import EvolutionChain from "./EvolutionChain";
+import { usePokemonContext } from "../context/PokemonContext";
 
 
 const PokemonDisplay = ({ pokemon }) => {
     const url = pokemon && pokemon.species.url;
     const {formatWeight, species, formatHeight} = usePokemonDisplay(url);
+    const {setSelectedPokemon} = usePokemonContext();
+
+
+    const onReturnToPokedex = () => {
+        setSelectedPokemon(null);
+
+
+    }
     return (
-        <div className="flex flex-col p-10 w-[1400px] h-[600px] items-center space-y-3">
         <div className="flex flex-row space-x-5">
 
-        <div className="flex flex-col w-[600px] h-[500px] space-y-2 ">
+        <div className="flex flex-col w-[600px] h-[500px] space-y-2">
+        <button className="bg-gray-200 rounded-2xl" onClick={onReturnToPokedex}> Return to the pokedex</button>
         <div className="flex flex-col w-[600px] h-[400px] bg-blue-200/70 rounded-3xl p-1">
             <div className="relative flex h-full items-center justify-center">
             <div className="absolute left-1 -top-1 flex flex-col opacity-40">
@@ -81,7 +89,6 @@ const PokemonDisplay = ({ pokemon }) => {
         </div>
 
 
-        </div>
         
 
     )
