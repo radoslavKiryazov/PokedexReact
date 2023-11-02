@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { getPokemonData } from "../utills/APICalls";
+import { usePokemonContext } from "../context/PokemonContext";
 const usePokeGrid = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [nextPageData, setNextPageData] = useState(null);
   const [previousPageData, setPreviousPageData] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  
 
   useEffect(() => {
     getPokemonData(`https://pokeapi.co/api/v2/pokemon?limit=20`)
@@ -21,7 +22,6 @@ const usePokeGrid = () => {
   const onNextPage = () => {
     getPokemonData(nextPageData).then((data) => {
       setPokemonData(data.results);
-      setPageNumber(pageNumber + 1);
       setNextPageData(data.next);
       setPreviousPageData(data.previous);
     });
@@ -29,7 +29,6 @@ const usePokeGrid = () => {
   const onPreviousPage = () => {
     getPokemonData(previousPageData).then((data) => {
       setPokemonData(data.results);
-      setPageNumber(pageNumber - 1);
       setNextPageData(data.next);
       setPreviousPageData(data.previous);
     });
@@ -40,7 +39,6 @@ const usePokeGrid = () => {
     onPreviousPage,
     nextPageData,
     previousPageData,
-    pageNumber,
   };
 };
 export default usePokeGrid;
