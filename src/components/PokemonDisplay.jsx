@@ -20,34 +20,36 @@ const PokemonDisplay = ({ pokemon }) => {
         setSelectedPokemon(null);
     }
     return (
-        <div className="flex flex-row space-x-5">
+        <div className="flex flex-row space-x-10">
 
             <div className="flex flex-col w-[600px] h-[500px] space-y-2">
                 <button className="bg-gray-200 rounded-2xl" onClick={onReturnToPokedex}> Return to the pokedex</button>
-                <div className="flex flex-col w-[600px] h-[400px] bg-blue-200/70 rounded-3xl p-1">
-                    <div className="relative flex h-full items-center justify-center">
-                        <div className="absolute left-1 -top-1 flex flex-col opacity-40">
-                            <h1 className="font-pokemonName text-9xl">{capitalizeFirstLetter(pokemon.name)}</h1>
-                            <h1 className="font-pokemonName text-9xl">#{pokemon.id}</h1>
+                <div className="flex flex-col w-[620px] h-[400px] bg-blue-200/70 rounded-3xl p-1">
+                    <div className="flex flex-row h-full ">
+                        <div className="flex flex-col opacity-40 ">
+                            <h1 className="font-pokemonName text-6xl">{capitalizeFirstLetter(pokemon.name)}</h1>
+                            <h1 className="font-pokemonName text-7xl">#{pokemon.id}</h1>
                             <div className="flex flex-row space-x-1">
                                 <img className="w-[30px] h-[30px]" src={weight} alt="weight" />
                                 <p className="font-pokemonName text-2xl">{formatWeight(pokemon.weight)} </p>
                                 <img className="w-[30px] h-[30px]" src={height} alt="height" />
                                 <p className="font-pokemonName text-2xl">{formatHeight(pokemon.height)}</p>
                             </div>
-                            <div className="flex flex-col p-1 w-[350px] h-[100px]">
+                            <div className="flex flex-col p-1 w-[350px] h-[150px]">
                                 {species && species.flavor_text_entries && species.flavor_text_entries[9] && (
                                     <h1 className="font-pokemonName text-md">{species.flavor_text_entries[9].flavor_text}</h1>)}
                             </div>
                         </div>
-                        <img className="absolute w-[300px] h-[300px] right-2" src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
-                    </div>
-                    <div className="flex flex-row w-full -space-x-6 justify-right items-center">
+                        <div className="flex justify-center items-center">
+                        <img className="w-[300px] h-[250px]" src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
+                        </div>
+
+
+
                     </div>
                 </div>
 
-                <div className="relative flex justify-start w-[600px] h-[100px] bg-blue-200/70 items-center font-pokemonName rounded-3xl">
-                    <h1 className="absolute text-8xl opacity-20"> EVOLUTIONS </h1>
+                <div className="flex justify-start w-[620px] h-[100px] bg-blue-200/70 items-center font-pokemonName rounded-3xl">
                     {species.evolution_chain && (
                         <EvolutionChain className chain={species.evolution_chain.url} />)}
 
