@@ -16,6 +16,7 @@ import psychic from '../assets/typeIcons/big/psychic.png'
 import rock from '../assets/typeIcons/big/rock.png'
 import steel from '../assets/typeIcons/big/steel.png'
 import water from '../assets/typeIcons/big/water.png'
+import { capitalizeFirstLetter } from '../utills/helperFunctions'
 const DisplayTypeBox = ({ type }) => {
     const map = {
         'bug': bug,
@@ -40,7 +41,7 @@ const DisplayTypeBox = ({ type }) => {
     return(
         <div className='flex flex-col font-pokemonName items-center text-xl '>
         <img className="w-[50px] h-[50px] animate-fade-right" src={map[type]} alt="typeImage"/>
-        <p>{type}</p>
+        <p>{capitalizeFirstLetter(type)}</p>
         </div>
     );
 

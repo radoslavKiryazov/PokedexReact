@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <main className="bg-pokevista2 bg-cover bg-repeat h-[100vh] w-[100vw]">
+    <main className="bg-pokevista2 bg-contain h-[100vh]">
       <NavBar/>
       <div className="flex justify-center items-center w-full pt-10 ">
       <Outlet/>

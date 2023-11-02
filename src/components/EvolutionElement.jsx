@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {getPokemon} from '../utills/APICalls';
 import { usePokemonContext } from '../context/PokemonContext';
+import { capitalizeFirstLetter } from '../utills/helperFunctions';
 
 
 const EvolutionElement = ({ url }) => {
@@ -21,9 +22,9 @@ const EvolutionElement = ({ url }) => {
     return (
         <>
         {pokemon && (
-            <div className="flex flex-col items-center justify-center font-pokemonName text-xl -space-y-4 animate-ease-in-out" onClick={onClick}>
+            <div className="flex flex-col items-center justify-center font-pokemonName text-xl -space-y-4 pb-2 animate-ease-in-out cursor-pointer" onClick={onClick}>
                 <img className='w-[100px] h-[100px] animate-fade-down' src={pokemon.sprites.front_default} alt={pokemon.name} />
-                <p className='animate-fade-up'>{pokemon.name}</p>
+                <p className='animate-fade-up'>{capitalizeFirstLetter(pokemon.name)}</p>
             </div>
         )}
         </>
