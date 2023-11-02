@@ -59,3 +59,7 @@ export const statPercent = (stat) => {
   const value = `w-[${stat}%]`;
   return value;
 };
+
+export const dynamiclyImportImage = async (size, image) => {
+  return (await import(`../assets/typeIcons/${size}/${image}.png`)).default;
+};

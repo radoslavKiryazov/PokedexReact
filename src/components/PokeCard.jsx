@@ -30,7 +30,7 @@ const PokeCard = ({url}) => {
             <h1 className="text-xl font-pokemonName text animate-fade-right">{name}</h1>
             <div className="flex flex-row space-x-2">
             {pokemon.types.map((type,index) => (
-                <CardTypeBox image={type.type.name} key={index}/>
+                <CardTypeBox type={type.type.name} key={index}/>
             ))}
             </div>
             </div>
