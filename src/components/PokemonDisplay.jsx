@@ -11,7 +11,7 @@ const PokemonDisplay = ({ pokemon }) => {
     const { formatWeight, formatHeight, blurb, chain } = usePokemonDisplay(url);
 
     return (
-        <div className="flex flex-row space-x-10 w-[1300px] h-[700px]">
+        <div className="flex flex-row space-x-10 w-[1300px] h-[550px]">
 
             <div className="flex flex-col w-[620px] h-[540px] space-y-2 ">
                 <ToPokedex />

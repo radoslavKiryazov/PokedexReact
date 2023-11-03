@@ -1,9 +1,15 @@
-export const pokemonMap = new Map(); // This is a cache that will store the data from the API calls. It will be used to prevent unnecessary API calls.
+const pokemonMap = new Map();
+const pageDataMap = new Map();
+/// miserable attempt at caching, works tho
 
-export const getPokemonData = async (url) => {
+export const getPageData = async (url) => {
+  if (pageDataMap.has(url)) {
+    return pageDataMap.get(url);
+  }
   try {
     const response = await fetch(url);
     const data = await response.json();
+    pageDataMap.set(url, data);
 
     return {
       results: data.results,
@@ -17,14 +23,13 @@ export const getPokemonData = async (url) => {
 
 export const getPokemon = async (url) => {
   if (pokemonMap.has(url)) {
-    console.log(`${url} from the cache`);
     return pokemonMap.get(url);
   }
   try {
     const response = await fetch(url);
     const data = await response.json();
     pokemonMap.set(url, data);
-    console.log(`${url} from the API`);
+
     return data;
   } catch (error) {
     console.error("Error fetching Pokemon", error);
