@@ -6,7 +6,7 @@ function App() {
   return (
     <main className="bg-pokevista2 bg-contain h-[100vh]">
       <NavBar/>
-      <div className="flex justify-center items-center w-full pt-10 ">
+      <div className="flex justify-center items-center w-full pt-5 ">
       <Outlet/>
       </div>
     </main>
