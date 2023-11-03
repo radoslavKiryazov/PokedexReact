@@ -8,9 +8,7 @@ import AbilitiesPanel from "./AbilitiesPanel";
 
 const PokemonDisplay = ({ pokemon }) => {
     const url = pokemon && pokemon.species.url;
-    const { formatWeight, species, formatHeight } = usePokemonDisplay(url);
-    const blurb = species && species.flavor_text_entries && species.flavor_text_entries[9] && species.flavor_text_entries[9].flavor_text;
-    const chain = species.evolution_chain && species.evolution_chain.url
+    const { formatWeight, formatHeight, blurb, chain } = usePokemonDisplay(url);
 
     return (
         <div className="flex flex-row space-x-10 w-[1300px] h-[700px]">
