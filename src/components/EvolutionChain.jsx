@@ -26,7 +26,7 @@ const EvolutionChain = ({ chain }) => {
 
     return (
         <>
-        <div className="flex flex-row -space-x-4">
+        <div className="flex justify-start w-[620px] h-[250px] bg-blue-200/50 items-center font-pokemonName rounded-3xl overflow-y-hidden overflow-x-auto">
             {basePokemon && <EvolutionElement url={replaceSpeciesWithPokemon(basePokemon)}/> }
             {evolutions.map((evolution) => (
                 <EvolutionElement url={replaceSpeciesWithPokemon(evolution.species.url)} key={evolution.species.name}/>
