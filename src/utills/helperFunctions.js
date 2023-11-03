@@ -1,4 +1,98 @@
-export const pokemonMap = new Map();
+const opacity = "/80";
+export const colors = {
+  //this is so fucking bad
+  default: `bg-black${opacity}`,
+  bug: {
+    single: `bg-bug${opacity}`,
+    primary: `from-bug${opacity}`,
+    secondary: `to-bug${opacity}`,
+  },
+  dark: {
+    single: `bg-dark${opacity}`,
+    primary: `from-dark${opacity}`,
+    secondary: `to-dark${opacity}`,
+  },
+  dragon: {
+    single: `bg-dragon${opacity}`,
+    primary: `from-dragon${opacity}`,
+    secondary: `to-dragon${opacity}`,
+  },
+  electric: {
+    single: `bg-electric${opacity}`,
+    primary: `from-electric${opacity}`,
+    secondary: `to-electric${opacity}`,
+  },
+  fairy: {
+    single: `bg-fairy${opacity}`,
+    primary: `from-fairy${opacity}`,
+    secondary: `to-fairy${opacity}`,
+  },
+  fire: {
+    single: `bg-fire${opacity}`,
+    primary: `from-fire${opacity}`,
+    secondary: `to-fire${opacity}`,
+  },
+  fighting: {
+    single: `bg-fighting${opacity}`,
+    primary: `from-fighting${opacity}`,
+    secondary: `to-fighting${opacity}`,
+  },
+  flying: {
+    single: `bg-flying${opacity}`,
+    primary: `from-flying${opacity}`,
+    secondary: `to-flying${opacity}`,
+  },
+  ghost: {
+    single: `bg-ghost${opacity}`,
+    primary: `from-ghost${opacity}`,
+    secondary: `to-ghost${opacity}`,
+  },
+  grass: {
+    single: `bg-grass${opacity}`,
+    primary: `from-grass${opacity}`,
+    secondary: `to-grass${opacity}`,
+  },
+  ground: {
+    single: `bg-ground${opacity}`,
+    primary: `from-ground${opacity}`,
+    secondary: `to-ground${opacity}`,
+  },
+  ice: {
+    single: `bg-ice${opacity}`,
+    primary: `from-ice${opacity}`,
+    secondary: `to-ice${opacity}`,
+  },
+  normal: {
+    single: `bg-normal${opacity}`,
+    primary: `from-normal${opacity}`,
+    secondary: `to-normal${opacity}`,
+  },
+  poison: {
+    single: `bg-poison${opacity}`,
+    primary: `from-poison${opacity}`,
+    secondary: `to-poison${opacity}`,
+  },
+  psychic: {
+    single: `bg-psychic${opacity}`,
+    primary: `from-psychic${opacity}`,
+    secondary: `to-psychic${opacity}`,
+  },
+  rock: {
+    single: `bg-rock${opacity}`,
+    primary: `from-rock${opacity}`,
+    secondary: `to-rock${opacity}`,
+  },
+  steel: {
+    single: `bg-steel${opacity}`,
+    primary: `from-steel${opacity}`,
+    secondary: `to-steel${opacity}`,
+  },
+  water: {
+    single: `bg-water${opacity}`,
+    primary: `from-water${opacity}`,
+    secondary: `to-water${opacity}`,
+  },
+};
 
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -11,47 +105,14 @@ export const replaceSpeciesWithPokemon = (link) => {
   const updatedURL = link.replace(/\/pokemon-species\//, "/pokemon/");
   return updatedURL;
 };
-export const colorVariantConverter = (type) => {
-  switch (type) {
-    default:
-      return "black";
 
-    case "bug":
-      return "bg-bug/80";
-    case "dark":
-      return "bg-dark/80";
-    case "dragon":
-      return "bg-dragon/80";
-    case "electric":
-      return "bg-electric/80";
-    case "fairy":
-      return "bg-fairy/80";
-    case "fire":
-      return "bg-fire/80";
-    case "fighting":
-      return "bg-fighting/80";
-    case "flying":
-      return "bg-flying/80";
-    case "ghost":
-      return "bg-ghost/80";
-    case "grass":
-      return "bg-grass/80";
-    case "ground":
-      return "bg-ground/80";
-    case "ice":
-      return "bg-ice/80";
-    case "normal":
-      return "bg-normal/80";
-    case "poison":
-      return "bg-poison/80";
-    case "psychic":
-      return "bg-psychic/80";
-    case "rock":
-      return "bg-rock/80";
-    case "steel":
-      return "bg-steel/80";
-    case "water":
-      return "bg-water/80";
+export const buildDynamicColor = (types) => {
+  if (types.length > 1) {
+    return `bg-gradient-to-r ${colors[types[0].type.name].primary} ${
+      colors[types[1].type.name].secondary
+    }`;
+  } else {
+    return colors[types[0].type.name].single;
   }
 };
 

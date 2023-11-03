@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import {
-  colorVariantConverter,
   capitalizeFirstLetter,
+  buildDynamicColor,
 } from "../utills/helperFunctions";
 import { getPokemon } from "../utills/APICalls";
 
 const usePokeCard = (url) => {
   const [pokemon, setPokemon] = useState(null);
-  const colorVariant =
-    pokemon && colorVariantConverter(pokemon.types[0].type.name);
+  const colorVariant = pokemon && buildDynamicColor(pokemon.types);
   const name = pokemon && capitalizeFirstLetter(pokemon.name);
   const [speed, setSpeed] = useState("animate-duration-[10000ms]");
 

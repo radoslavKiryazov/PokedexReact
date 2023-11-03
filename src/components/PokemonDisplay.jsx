@@ -8,6 +8,8 @@ import StatBox from "./StatBox";
 import DisplayTypeBox from "./DisplayTypeBox";
 import EvolutionChain from "./EvolutionChain";
 import { usePokemonContext } from "../context/PokemonContext";
+import AbilityBox from "./AbilityBox";
+import pokedex from "../assets/pokedex.gif";
 
 
 const PokemonDisplay = ({ pokemon }) => {
@@ -20,11 +22,18 @@ const PokemonDisplay = ({ pokemon }) => {
         setSelectedPokemon(null);
     }
     return (
-        <div className="flex flex-row space-x-10">
+        <div className="flex flex-row space-x-10 w-[1300px] h-[700px]">
 
-            <div className="flex flex-col w-[600px] h-[500px] space-y-2">
-                <button className="bg-gray-200 rounded-2xl" onClick={onReturnToPokedex}> Return to the pokedex</button>
-                <div className="flex flex-col w-[620px] h-[400px] bg-blue-200/70 rounded-3xl p-1">
+            <div className="flex flex-col w-[620px] h-[540px] space-y-2 ">
+                <div className="flex flex-row bg-blue-200/50 rounded-3xl w-[620px] h-[100px] items-center p-2 space-x-5 cursor-pointer" onClick={onReturnToPokedex}>
+                <img className="w-[90px] h-[90px]" src={pokedex} alt="pokedex "/>
+                <h1 className="font-pokemonName text-6xl">RETURN TO POKEDEX</h1>
+                </div>
+
+
+
+
+                <div className="flex flex-col w-[620px] h-[400px] bg-blue-200/50 rounded-3xl p-1">
                     <div className="flex flex-row h-full ">
                         <div className="flex flex-col opacity-40 ">
                             <h1 className="font-pokemonName text-6xl">{capitalizeFirstLetter(pokemon.name)}</h1>
@@ -49,15 +58,11 @@ const PokemonDisplay = ({ pokemon }) => {
                     </div>
                 </div>
 
-                <div className="flex justify-start w-[620px] h-[100px] bg-blue-200/70 items-center font-pokemonName rounded-3xl">
+                <div className="flex justify-start w-[620px] h-[250px] bg-blue-200/50 items-center font-pokemonName rounded-3xl overflow-y-hidden overflow-x-auto">
                     {species.evolution_chain && (
                         <EvolutionChain className chain={species.evolution_chain.url} />)}
 
                 </div>
-
-
-
-
             </div>
 
 
@@ -66,7 +71,7 @@ const PokemonDisplay = ({ pokemon }) => {
 
 
 
-            <div className="flex flex-col items-center bg-blue-100/70 p-2 w-[300px] h-[510px] rounded-3xl ">
+            <div className="flex flex-col items-center bg-blue-200/50 p-2 w-[300px] h-[540px] rounded-3xl ">
                 <h1 className="font-pokemonName text-4xl"> STATS </h1>
                 {pokemon.stats.map((stat) => (<StatBox stat={stat.stat.name} value={stat.base_stat} key={stat.stat.name} />))}
                 <h1 className="font-pokemonName text-4xl pt-5"> TYPE </h1>
@@ -78,12 +83,17 @@ const PokemonDisplay = ({ pokemon }) => {
                 </div>
             </div>
 
-            <div className="flex flex-col bg-blue-100 p-2 w-[300px] h-[510px] items-center rounded-3xl ">
-                <h1 className="font-pokemonName text-4xl"> ABILITIES: </h1>
-                {pokemon.abilities.map((ability) => (
-                    <p key={ability.ability.name}>{ability.ability.name}</p>
+            <div className="flex flex-col bg-blue-200/50 w-[300px] h-[540px] rounded-3xl px-2">
+                <div className="flex items-center justify-center">
+                    <h1 className="font-pokemonName text-4xl"> ABILITIES: </h1>
+                    </div>
+                <div className="font flex-col space-y-5">
 
+                {pokemon.abilities.map((ability) => (
+                    <AbilityBox url={ability.ability.url} key={ability.ability.name}/>
                 ))}
+
+                </div>
 
             </div>
         </div>
