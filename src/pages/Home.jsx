@@ -10,7 +10,9 @@ const Home = () => {
         onNextPage,
         onPreviousPage,
         nextPageData,
-        previousPageData
+        previousPageData,
+        pageNumber,
+        jumpToStart
     } = usePokeGrid();
     const [stashedPage, setStashedPage] = useState(null);
 
@@ -28,7 +30,7 @@ const Home = () => {
             {selectedPokemon ?
                 (<PokemonDisplay pokemon={selectedPokemon} key={selectedPokemon.id} />) :
                 (stashedPage ? (<PokeGrid pokemonData={stashedPage.data} onNextPage={onNextPage} onPreviousPage={onPreviousPage} nextPageData={stashedPage.next} previousPageData={stashedPage.previous} />)
-                    : (<PokeGrid pokemonData={pokemonData} onNextPage={onNextPage} onPreviousPage={onPreviousPage} nextPageData={nextPageData} previousPageData={previousPageData} />))}
+                    : (<PokeGrid pokemonData={pokemonData} onNextPage={onNextPage} onPreviousPage={onPreviousPage} nextPageData={nextPageData} previousPageData={previousPageData} pageNumber={pageNumber} onJumpToStart={jumpToStart} />))}
         </div>
 
     );

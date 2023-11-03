@@ -3,94 +3,94 @@ export const colors = {
   //this is so fucking bad
   default: `bg-black${opacity}`,
   bug: {
-    single: `bg-bug${opacity}`,
-    primary: `from-bug${opacity}`,
-    secondary: `to-bug${opacity}`,
+    single: `bg-bug/80`,
+    primary: `from-bug/80`,
+    secondary: `to-bug/80`,
   },
   dark: {
-    single: `bg-dark${opacity}`,
-    primary: `from-dark${opacity}`,
-    secondary: `to-dark${opacity}`,
+    single: `bg-dark/80`,
+    primary: `from-dark/80`,
+    secondary: `to-dark/80`,
   },
   dragon: {
-    single: `bg-dragon${opacity}`,
-    primary: `from-dragon${opacity}`,
-    secondary: `to-dragon${opacity}`,
+    single: `bg-dragon/80`,
+    primary: `from-dragon/80`,
+    secondary: `to-dragon/80`,
   },
   electric: {
-    single: `bg-electric${opacity}`,
-    primary: `from-electric${opacity}`,
-    secondary: `to-electric${opacity}`,
+    single: `bg-electric/80`,
+    primary: `from-electric/80`,
+    secondary: `to-electric/80`,
   },
   fairy: {
-    single: `bg-fairy${opacity}`,
-    primary: `from-fairy${opacity}`,
-    secondary: `to-fairy${opacity}`,
+    single: `bg-fairy/80`,
+    primary: `from-fairy/80`,
+    secondary: `to-fairy/80`,
   },
   fire: {
-    single: `bg-fire${opacity}`,
-    primary: `from-fire${opacity}`,
-    secondary: `to-fire${opacity}`,
+    single: `bg-fire/80`,
+    primary: `from-fire/80`,
+    secondary: `to-fire/80`,
   },
   fighting: {
-    single: `bg-fighting${opacity}`,
-    primary: `from-fighting${opacity}`,
-    secondary: `to-fighting${opacity}`,
+    single: `bg-fighting/80`,
+    primary: `from-fighting/80`,
+    secondary: `to-fighting/80`,
   },
   flying: {
-    single: `bg-flying${opacity}`,
-    primary: `from-flying${opacity}`,
-    secondary: `to-flying${opacity}`,
+    single: `bg-flying/80`,
+    primary: `from-flying/80`,
+    secondary: `to-flying/80`,
   },
   ghost: {
-    single: `bg-ghost${opacity}`,
-    primary: `from-ghost${opacity}`,
-    secondary: `to-ghost${opacity}`,
+    single: `bg-ghost/80`,
+    primary: `from-ghost/80`,
+    secondary: `to-ghost/80`,
   },
   grass: {
-    single: `bg-grass${opacity}`,
-    primary: `from-grass${opacity}`,
-    secondary: `to-grass${opacity}`,
+    single: `bg-grass/80`,
+    primary: `from-grass/80`,
+    secondary: `to-grass/80`,
   },
   ground: {
-    single: `bg-ground${opacity}`,
-    primary: `from-ground${opacity}`,
-    secondary: `to-ground${opacity}`,
+    single: `bg-ground/80`,
+    primary: `from-ground/80`,
+    secondary: `to-ground/80`,
   },
   ice: {
-    single: `bg-ice${opacity}`,
-    primary: `from-ice${opacity}`,
-    secondary: `to-ice${opacity}`,
+    single: `bg-ice/80`,
+    primary: `from-ice/80`,
+    secondary: `to-ice/80`,
   },
   normal: {
-    single: `bg-normal${opacity}`,
-    primary: `from-normal${opacity}`,
-    secondary: `to-normal${opacity}`,
+    single: `bg-normal/80`,
+    primary: `from-normal/80`,
+    secondary: `to-normal/80`,
   },
   poison: {
-    single: `bg-poison${opacity}`,
-    primary: `from-poison${opacity}`,
-    secondary: `to-poison${opacity}`,
+    single: `bg-poison/80`,
+    primary: `from-poison/80`,
+    secondary: `to-poison/80`,
   },
   psychic: {
-    single: `bg-psychic${opacity}`,
-    primary: `from-psychic${opacity}`,
-    secondary: `to-psychic${opacity}`,
+    single: `bg-psychic/80`,
+    primary: `from-psychic/80`,
+    secondary: `to-psychic/80`,
   },
   rock: {
-    single: `bg-rock${opacity}`,
-    primary: `from-rock${opacity}`,
-    secondary: `to-rock${opacity}`,
+    single: `bg-rock/80`,
+    primary: `from-rock/80`,
+    secondary: `to-rock/80`,
   },
   steel: {
-    single: `bg-steel${opacity}`,
-    primary: `from-steel${opacity}`,
-    secondary: `to-steel${opacity}`,
+    single: `bg-steel/80`,
+    primary: `from-steel/80`,
+    secondary: `to-steel/80`,
   },
   water: {
-    single: `bg-water${opacity}`,
-    primary: `from-water${opacity}`,
-    secondary: `to-water${opacity}`,
+    single: `bg-water/80`,
+    primary: `from-water/80`,
+    secondary: `to-water/80`,
   },
 };
 
@@ -108,6 +108,11 @@ export const replaceSpeciesWithPokemon = (link) => {
 
 export const buildDynamicColor = (types) => {
   if (types.length > 1) {
+    console.log(
+      `bg-gradient-to-r ${colors[types[0].type.name].primary} ${
+        colors[types[1].type.name].secondary
+      }`
+    );
     return `bg-gradient-to-r ${colors[types[0].type.name].primary} ${
       colors[types[1].type.name].secondary
     }`;
