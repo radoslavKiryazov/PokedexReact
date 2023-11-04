@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import PokeGrid from "../components/PokeGrid";
-import PokemonDisplay from "../components/PokemonDisplay";
 import { usePokemonContext } from "../context/PokemonContext";
 import usePokeGrid from "../customHooks/usePokeGrid";
+import PokemonShowcase from "../components/PokemonShowcase";
 
 const Home = () => {
     const { selectedPokemon } = usePokemonContext();
-    const { pokemonData,
+    const { pageData,
         onNextPage,
         onPreviousPage,
         nextPageData,
@@ -18,8 +18,7 @@ const Home = () => {
 
     useEffect(() => {
         if (selectedPokemon) {
-            setStashedPage({ next: nextPageData, previous: previousPageData, data: pokemonData });
-            console.log(stashedPage);
+            !stashedPage === pageData && setStashedPage ({ next: nextPageData, previous: previousPageData, data: pageData });
         } else {
             setStashedPage(null);
         }
@@ -28,9 +27,9 @@ const Home = () => {
     return (
         <div className="flex flex-col">
             {selectedPokemon ?
-                (<PokemonDisplay pokemon={selectedPokemon} key={selectedPokemon.id} />) :
+                (<PokemonShowcase/>) :
                 (stashedPage ? (<PokeGrid pokemonData={stashedPage.data} onNextPage={onNextPage} onPreviousPage={onPreviousPage} nextPageData={stashedPage.next} previousPageData={stashedPage.previous} />)
-                    : (<PokeGrid pokemonData={pokemonData} onNextPage={onNextPage} onPreviousPage={onPreviousPage} nextPageData={nextPageData} previousPageData={previousPageData} pageNumber={pageNumber} onJumpToStart={jumpToStart} />))}
+                    : (<PokeGrid pokemonData={pageData} onNextPage={onNextPage} onPreviousPage={onPreviousPage} nextPageData={nextPageData} previousPageData={previousPageData} pageNumber={pageNumber} onJumpToStart={jumpToStart} />))}
         </div>
 
     );

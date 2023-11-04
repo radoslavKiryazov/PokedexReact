@@ -8,6 +8,7 @@ const usePokemonDisplay = (url) => {
     species.flavor_text_entries[9] &&
     species.flavor_text_entries[9].flavor_text;
   const chain = species.evolution_chain && species.evolution_chain.url;
+  const chainID = species.evolution_chain && species.evolution_chain.id;
 
   const formatWeight = (weightInGrams) => {
     const weightInKilograms = weightInGrams / 10;
@@ -26,7 +27,7 @@ const usePokemonDisplay = (url) => {
   const formatHeight = (decimeters) => {
     return Math.round(decimeters * 0.1 * 100) / 100 + " m";
   };
-  return { formatWeight, formatHeight, blurb, chain };
+  return { formatWeight, formatHeight, blurb, chain, chainID };
 };
 
 export default usePokemonDisplay;

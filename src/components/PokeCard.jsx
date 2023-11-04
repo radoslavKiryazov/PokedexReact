@@ -11,7 +11,7 @@ const PokeCard = ({ url }) => {
     return (
         <>
             {pokemon ? (
-                <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer animate-fade`} onClick={() => setSelectedPokemon(pokemon)} onMouseEnter={accelerate} onMouseLeave={decelerate}>
+                <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer animate-fade shadow-xl border-2 border-opacity-50 border-black`} onClick={() => setSelectedPokemon(pokemon)} onMouseEnter={accelerate} onMouseLeave={decelerate}>
                     <div className="flex justify-center flex-col w-[190px] -space-y-0">
                         <IDbox id={pokemon.id} />
                         <h1 className="text-xl font-pokemonName text animate-fade-right">{name}</h1>
