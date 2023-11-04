@@ -2,7 +2,7 @@ import usePokemonDisplay from "../customHooks/usePokemonDisplay";
 import EvolutionChain from "./EvolutionChain";
 import StatsPanel from "./StatsPanel";
 import PokemonInfo from "./PokemonInfo";
-import ToPokedex from "./ToPokedex";
+import PokedexNavigation from "./PokedexNavigation";
 import AbilitiesPanel from "./AbilitiesPanel";
 
 
@@ -14,7 +14,7 @@ const PokemonDisplay = ({ pokemon }) => {
         <div className="flex flex-row space-x-10 w-[1300px] h-[550px]">
 
             <div className="flex flex-col w-[620px] h-[540px] space-y-2 ">
-                <ToPokedex />
+                <PokedexNavigation />
                 <PokemonInfo id={pokemon.id} name={pokemon.name} height={formatHeight(pokemon.height)} weight={formatWeight(pokemon.weight)} pokeimage={pokemon.sprites.other["official-artwork"].front_default} blurb={blurb}/>
                 <EvolutionChain chain={chain} />
             </div>
