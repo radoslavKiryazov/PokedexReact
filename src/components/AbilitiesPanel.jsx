@@ -1,4 +1,4 @@
-import AbilityBox from "./AbilityBox";
+import AbilityElement from "./AbilityElement";
 
 const AbilitiesPanel = ({abilities, colorVariant}) => {
     return (
@@ -9,7 +9,7 @@ const AbilitiesPanel = ({abilities, colorVariant}) => {
                 <div className="font flex-col space-y-5">
 
                 {abilities.map((ability) => (
-                    <AbilityBox url={ability.ability.url} key={ability.ability.name}/>
+                    <AbilityElement url={ability.ability.url} key={ability.ability.name}/>
                 ))}
                 </div>
 

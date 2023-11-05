@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { dynamiclyImportImage } from '../utills/helperFunctions'
 
 
-const CardTypeBox = ({type}) => {
+const CardTypeElement = ({type}) => {
     const [image, setImage] = useState(null);
 
     useEffect(() => {
@@ -15,4 +15,4 @@ const CardTypeBox = ({type}) => {
     );
 
 }
-export default CardTypeBox;
+export default CardTypeElement;

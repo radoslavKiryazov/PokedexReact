@@ -1,9 +1,9 @@
 import {
     capitalizeFirstLetter,
 } from "../utills/helperFunctions";
-import useAbilityBox from "../customHooks/useAbilityBox";
+import useAbilityBox from "../customHooks/useAbilityElement";
 
-const AbilityBox = ({ url }) => {
+const AbilityElement = ({ url }) => {
     const ability = useAbilityBox(url);
     
     return (
@@ -24,4 +24,4 @@ const AbilityBox = ({ url }) => {
 
 
 }
-export default AbilityBox;
+export default AbilityElement;

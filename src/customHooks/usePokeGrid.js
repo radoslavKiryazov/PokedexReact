@@ -22,6 +22,7 @@ const usePokeGrid = () => {
         `https://pokeapi.co/api/v2/pokemon?offset=0&limit=20`
       );
       setNewData(data);
+      setPageNumber(1);
     } catch (error) {
       console.error("Error fetching Pokemon data:", error);
     }

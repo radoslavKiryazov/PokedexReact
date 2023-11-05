@@ -2,7 +2,7 @@ import PokeCard from "./PokeCard";
 import backbutton from '../assets/backbutton.png'
 import forwardbutton from '../assets/forwardbutton.png'
 
-const PokeGrid = ({ pokemonData, onNextPage, onPreviousPage, nextPageData, previousPageData, onJumpToStart, pageNumber}) => {
+const PokeGrid = ({ pageData, onNextPage, onPreviousPage, nextPageData, previousPageData, onJumpToStart, pageNumber}) => {
     return (
         <>
             <div className="flex flex-row  ">
@@ -11,7 +11,7 @@ const PokeGrid = ({ pokemonData, onNextPage, onPreviousPage, nextPageData, previ
                 </div>
                 <div className="flex flex-col w-[1050px] h-[600px] ">
                 <div className="md:grid grid-cols-4 gap-3 h-fil p-2 w-[1050px] h-[600px]">
-                    {pokemonData.map((pokemon) =>
+                    {pageData.map((pokemon) =>
                         (<PokeCard url={pokemon.url} key={pokemon.name} />))}
                 </div>
                 <div className="flex flex-row font-pokemonName px-2 justify-between text-3xl">

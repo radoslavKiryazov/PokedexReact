@@ -5,11 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "poke-pattern": "url('/public/pokepattern.jpeg')",
-        pokevista: "url('/public/vista.jpg')",
-        pokevista2: "url('/public/vista2.jpg')",
-        pattern: "url('/public/bodybg.png')",
-        diamond: "url('/public/diamond.jpg')",
-        pokedex: "url('/public/pokedex.png')",
+        1: "url('/public/backgrounds/1.jpg')",
       },
       fontFamily: {
         pokemonName: ["Handjet"],

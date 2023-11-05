@@ -1,5 +1,5 @@
-import IDbox from "./IDbox"
-import CardTypeBox from "./CardTypeBox"
+import CardID from "./CardID"
+import CardTypeBox from "./CardTypeElement"
 import usePokeCard from "../customHooks/usePokeCard"
 import pokeball from "../assets/pokeball.png"
 import { usePokemonContext } from "../context/PokemonContext"
@@ -13,7 +13,7 @@ const PokeCard = ({ url }) => {
             {pokemon ? (
                 <div className={`flex flex-row ${colorVariant} w-[250px] h-[100px] p-2 rounded-3xl cursor-pointer animate-fade shadow-xl border-2 border-opacity-60 border-black`} onClick={() => setSelectedPokemon(pokemon)} onMouseEnter={accelerate} onMouseLeave={decelerate}>
                     <div className="flex justify-center flex-col w-[190px] -space-y-0">
-                        <IDbox id={pokemon.id} />
+                        <CardID id={pokemon.id} />
                         <h1 className="text-xl font-pokemonName text animate-fade-right">{name}</h1>
                         <div className="flex flex-row space-x-2">
                             {pokemon.types.map((type, index) => (
