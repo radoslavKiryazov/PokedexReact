@@ -18,11 +18,11 @@ const Home = () => {
 
     useEffect(() => {
         if (selectedPokemon) {
-            !stashedPage === pageData && setStashedPage ({ next: nextPageData, previous: previousPageData, data: pageData });
+            !stashedPage === pageData && console.log('NEW PAGE');;
         } else {
             setStashedPage(null);
         }
-    }, [selectedPokemon]);
+    }, [pageData, selectedPokemon, stashedPage]);
 
     return (
         <div className="flex flex-col">
