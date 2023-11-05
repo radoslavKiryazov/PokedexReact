@@ -9,7 +9,7 @@ const EvolutionChain = ({ chain, colorVariant }) => {
     return (
         <>
         <div className="flex flex-col justify-center items-center">
-        <h1 className="text-5xl"> EVOLUTION CHAIN </h1>
+        <h1 className="text-5xl animate-fade"> EVOLUTION CHAIN </h1>
         <div className={`flex flex-row justify-start w-[620px] h-[100px] ${colorVariant} items-center font-pokemonName rounded-3xl overflow-y-hidden border-opacity-60 overflow-x-auto animate-fade-up border-2 border-black `}>
             {basePokemon && <EvolutionElement url={replaceSpeciesWithPokemon(basePokemon)}/> }
             {evolutions.map((evolution) => (
