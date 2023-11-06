@@ -1,8 +1,16 @@
 import PokeCard from "./PokeCard";
 import backbutton from '../assets/backbutton.png'
 import forwardbutton from '../assets/forwardbutton.png'
+import usePokeGrid from "../customHooks/usePokeGrid";
 
-const PokeGrid = ({ pageData, onNextPage, onPreviousPage, nextPageData, previousPageData, onJumpToStart, pageNumber}) => {
+const PokeGrid = ({ pageData, nextPageData, previousPageData}) => {
+    const {
+        onNextPage,
+        onPreviousPage,
+        pageNumber,
+        jumpToStart
+    } = usePokeGrid();
+    
     return (
         <>
             <div className="flex flex-row  ">
@@ -16,7 +24,7 @@ const PokeGrid = ({ pageData, onNextPage, onPreviousPage, nextPageData, previous
                 </div>
                 <div className="flex flex-row font-pokemonName px-2 justify-between text-3xl">
                 <h1>{pageNumber}</h1>
-                {pageNumber >= 5 && (<button onClick={onJumpToStart}> Jump To Start </button>)}   
+                {pageNumber >= 5 && (<button onClick={jumpToStart}> Jump To Start </button>)}   
                 </div> 
                 </div>
                 <div className="flex items-center justify-center w-10 ">

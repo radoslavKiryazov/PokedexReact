@@ -8,9 +8,16 @@ export const usePokemonContext = () => {
 
 export const PokemonProvider = ({ children }) => {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [pageData, setPageData] = useState({
+    result: [],
+    next: null,
+    previous: null,
+  });
 
   return (
-    <PokemonContext.Provider value={{ selectedPokemon, setSelectedPokemon }}>
+    <PokemonContext.Provider
+      value={{ selectedPokemon, setSelectedPokemon, pageData, setPageData }}
+    >
       {children}
     </PokemonContext.Provider>
   );
