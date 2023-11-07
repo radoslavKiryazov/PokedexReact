@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 const PokemonContext = createContext();
 
@@ -13,6 +13,8 @@ export const PokemonProvider = ({ children }) => {
     next: null,
     previous: null,
   });
+
+  console.log(pageData.result);
 
   return (
     <PokemonContext.Provider

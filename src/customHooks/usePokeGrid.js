@@ -1,31 +1,58 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePokemonContext } from "../context/PokemonContext";
-import usePokedex from "./usePokedex";
+import { getPageData } from "../utills/APICalls";
 
 const usePokeGrid = () => {
-  const { pageData } = usePokemonContext();
-  const { loadPageData } = usePokedex();
+  const { setPageData, pageData } = usePokemonContext();
   const [pageNumber, setPageNumber] = useState(1);
 
   const jumpToStart = async () => {
-    loadPageData(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=20`);
-    setPageNumber(pageNumber + 1);
+    try {
+      const data = await getPageData(
+        `https://pokeapi.co/api/v2/pokemon?offset=0&limit=20`
+      );
+      setPageData({
+        result: data.results,
+        next: data.next,
+        previous: data.previous,
+      });
+      setPageNumber(1);
+    } catch (error) {
+      console.error("Error fetching Pokemon data:", error);
+    }
   };
 
   const onNextPage = async () => {
-    loadPageData(pageData.next);
-    setPageNumber(pageNumber + 1);
+    try {
+      const data = await getPageData(pageData.next);
+      setPageData({
+        result: data.results,
+        next: data.next,
+        previous: data.previous,
+      });
+      setPageNumber(pageNumber + 1);
+    } catch (error) {
+      console.error("Error fetching Pokemon data:", error);
+    }
   };
   const onPreviousPage = async () => {
-    loadPageData(pageData.previous);
-    setPageNumber(pageNumber - 1);
+    try {
+      const data = await getPageData(pageData.previous);
+      setPageData({
+        result: data.results,
+        next: data.next,
+        previous: data.previous,
+      });
+      setPageNumber(pageNumber - 1);
+    } catch (error) {
+      console.error("Error fetching Pokemon data:", error);
+    }
   };
   return {
-    pageData,
+    pageNumber,
     onNextPage,
     onPreviousPage,
     jumpToStart,
-    pageNumber,
   };
 };
 export default usePokeGrid;

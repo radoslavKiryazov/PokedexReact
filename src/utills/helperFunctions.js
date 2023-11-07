@@ -107,11 +107,6 @@ export const replaceSpeciesWithPokemon = (link) => {
 
 export const buildDynamicColor = (types) => {
   if (types.length > 1) {
-    console.log(
-      `bg-gradient-to-r ${colors[types[0].type.name].primary} ${
-        colors[types[1].type.name].secondary
-      }`
-    );
     return `bg-gradient-to-r ${colors[types[0].type.name].primary} ${
       colors[types[1].type.name].secondary
     }`;

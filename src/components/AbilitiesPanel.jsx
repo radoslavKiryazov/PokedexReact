@@ -6,7 +6,7 @@ const AbilitiesPanel = ({abilities, colorVariant}) => {
                 <div className="flex items-center justify-center">
                     <h1 className="font-pokemonName text-4xl animate-fade"> ABILITIES: </h1>
                     </div>
-                <div className="font flex-col space-y-5">
+                <div className="font flex-col space-y-3 pt-2">
 
                 {abilities.map((ability) => (
                     <AbilityElement url={ability.ability.url} key={ability.ability.name}/>
