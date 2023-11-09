@@ -1,6 +1,6 @@
 import AbilityElement from "./AbilityElement";
 
-const AbilitiesPanel = ({abilities, colorVariant}) => {
+const Abilities = ({abilities, colorVariant}) => {
     return (
         <div className={`flex flex-col ${colorVariant} w-[300px] h-[540px] rounded-3xl px-2 border-opacity-60 animate-fade-down border-2 border-black`}>
                 <div className="flex items-center justify-center">
@@ -9,7 +9,7 @@ const AbilitiesPanel = ({abilities, colorVariant}) => {
                 <div className="font flex-col space-y-3 pt-2">
 
                 {abilities.map((ability) => (
-                    <AbilityElement url={ability.ability.url} key={ability.ability.name}/>
+                    <AbilityElement ability={ability} key={ability.id}/>
                 ))}
                 </div>
 
@@ -17,4 +17,4 @@ const AbilitiesPanel = ({abilities, colorVariant}) => {
     )
 
 }
-export default AbilitiesPanel;
+export default Abilities;

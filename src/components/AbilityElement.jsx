@@ -1,11 +1,8 @@
 import {
     capitalizeFirstLetter,
 } from "../utills/helperFunctions";
-import useAbilityBox from "../customHooks/useAbilityElement";
 
-const AbilityElement = ({ url }) => {
-    const ability = useAbilityBox(url);
-    
+const AbilityElement = ({ ability }) => {    
     return (
         <>
         {ability && (
@@ -13,7 +10,6 @@ const AbilityElement = ({ url }) => {
             <h1 className="text-2xl">{capitalizeFirstLetter(ability.name)}</h1>
             <p>{ability.short_effect}</p>
         </div>
-        
         )
         }
 

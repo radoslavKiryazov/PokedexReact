@@ -35,16 +35,49 @@ export const getPokemon = async (url) => {
     console.error("Error fetching Pokemon", error);
   }
 };
+export const getAbility = async (url) => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const englishEffect = data.effect_entries.find(
+      (effect) => effect.language.name === "en"
+    );
 
-export const fetchSpecies = async (url) => {
+    return { ...data, short_effect: englishEffect.short_effect };
+  } catch (error) {
+    console.error("Error fetching Pokemon Ability:", error);
+  }
+};
+export const getEvolutionChain = async (url) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
 
-    return {
-      description: data.flavor_text_entries[0].flavor_text,
-    };
+    const base = data.chain.species?.url;
+    const evolvesToUrl = data.chain.evolves_to[0]?.evolves_to[0]?.species.url;
+    const evolutionData = [...data.chain.evolves_to] || [];
+    const urls = evolutionData.map((evolution) => evolution.species.url);
+    const builder = [];
+
+    base && builder.push(base);
+    evolvesToUrl && builder.push(evolvesToUrl);
+    urls && builder.push(...urls);
+
+    return builder;
   } catch (error) {
-    console.error("Error fetching Pokemon data:", error);
+    console.error("Error fetching Pokemon Ability:", error);
+  }
+};
+
+export const getPokemonSpecies = async (url) => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const english_blurb = data.flavor_text_entries.find(
+      (flavor_text) => flavor_text.language.name === "en"
+    ); //find the english description
+    return { ...data, blurb: english_blurb.flavor_text };
+  } catch (error) {
+    console.error("Error fetching Pokemon species:", error);
   }
 };

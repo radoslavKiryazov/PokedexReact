@@ -14,8 +14,6 @@ export const PokemonProvider = ({ children }) => {
     previous: null,
   });
 
-  console.log(pageData.result);
-
   return (
     <PokemonContext.Provider
       value={{ selectedPokemon, setSelectedPokemon, pageData, setPageData }}

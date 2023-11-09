@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react";
-import { getPokemon } from "../utills/APICalls";
 import { usePokemonContext } from "../context/PokemonContext";
 
-const useEvolutionElement = (url) => {
-  const [pokemon, setPokemon] = useState(null);
+const useEvolutionElement = (pokemon) => {
   const { setSelectedPokemon } = usePokemonContext();
   const [suggest, setSuggest] = useState(false);
 
-  useEffect(() => {
-    getPokemon(url).then((data) => {
-      setPokemon(data);
-    });
-  }, [url]);
-
   const onClick = () => {
-    setSelectedPokemon(pokemon);
+    if (setSelectedPokemon) {
+      setSelectedPokemon(pokemon);
+    }
   };
 
   const onMouseEnter = () => {
@@ -23,6 +17,6 @@ const useEvolutionElement = (url) => {
   const onMouseLeave = () => {
     setSuggest(false);
   };
-  return { pokemon, onClick, onMouseEnter, onMouseLeave, suggest };
+  return { onClick, onMouseEnter, onMouseLeave, suggest };
 };
 export default useEvolutionElement;
