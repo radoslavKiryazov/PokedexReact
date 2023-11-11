@@ -1,22 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Julius+Sans+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Julius+Sans+One&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 ::-webkit-scrollbar {
-    height: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

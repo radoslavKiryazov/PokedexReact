@@ -13,10 +13,18 @@ export const PokemonProvider = ({ children }) => {
     next: null,
     previous: null,
   });
+  const [pageNumber, setPageNumber] = useState(1);
 
   return (
     <PokemonContext.Provider
-      value={{ selectedPokemon, setSelectedPokemon, pageData, setPageData }}
+      value={{
+        selectedPokemon,
+        setSelectedPokemon,
+        pageData,
+        setPageData,
+        pageNumber,
+        setPageNumber,
+      }}
     >
       {children}
     </PokemonContext.Provider>

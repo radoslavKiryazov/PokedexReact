@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePokemonContext } from "../context/PokemonContext";
 
 const useEvolutionElement = (pokemon) => {
@@ -6,9 +6,7 @@ const useEvolutionElement = (pokemon) => {
   const [suggest, setSuggest] = useState(false);
 
   const onClick = () => {
-    if (setSelectedPokemon) {
-      setSelectedPokemon(pokemon);
-    }
+    setSelectedPokemon(pokemon);
   };
 
   const onMouseEnter = () => {

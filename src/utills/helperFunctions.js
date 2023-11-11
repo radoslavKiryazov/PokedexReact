@@ -120,6 +120,12 @@ export const statPercent = (stat) => {
   return value;
 };
 
-export const dynamiclyImportImage = async (size, image) => {
+export const dynamiclyImportTypeImage = async (size, image) => {
   return (await import(`../assets/typeIcons/${size}/${image}.png`)).default;
+};
+export const dynamiclyImportImage = async (image) => {
+  if (image.startsWith("data:")) {
+    return image;
+  }
+  return (await import(`../assets/${image}.png`)).default;
 };

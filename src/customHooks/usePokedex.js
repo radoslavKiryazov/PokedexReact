@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { usePokemonContext } from "../context/PokemonContext";
 import { getPageData } from "../utills/APICalls";
 

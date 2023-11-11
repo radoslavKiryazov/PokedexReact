@@ -55,7 +55,6 @@ const usePokemonDisplay = () => {
           return response;
         })
       );
-
       setEvolutions(results);
     } catch (error) {
       console.error("Error fetching evolution chain data:", error);

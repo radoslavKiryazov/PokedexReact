@@ -1,10 +1,36 @@
-import { useState } from "react";
 import { usePokemonContext } from "../context/PokemonContext";
 import { getPageData } from "../utills/APICalls";
+import { useEffect, useState } from "react";
+import { getPokemon } from "../utills/APICalls";
 
 const usePokeGrid = () => {
-  const { setPageData, pageData } = usePokemonContext();
-  const [pageNumber, setPageNumber] = useState(1);
+  const { setPageData, pageData, setPageNumber, pageNumber } =
+    usePokemonContext();
+  const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoadingState] = useState(true);
+
+  useEffect(() => {
+    setLoadingState(true);
+
+    fetchPokemons();
+  }, [pageData]);
+
+  const fetchPokemons = async () => {
+    setLoadingState(true);
+    try {
+      const results = await Promise.all(
+        pageData.result.map(async (pokemon) => {
+          const response = await getPokemon(pokemon.url);
+          return response;
+        })
+      );
+      setPokemons(results);
+    } catch (error) {
+      console.error("Error fetching evolution chain data:", error);
+    } finally {
+      setLoadingState(false);
+    }
+  };
 
   const jumpToStart = async () => {
     try {
@@ -53,6 +79,8 @@ const usePokeGrid = () => {
     onNextPage,
     onPreviousPage,
     jumpToStart,
+    loading,
+    pokemons,
   };
 };
 export default usePokeGrid;
