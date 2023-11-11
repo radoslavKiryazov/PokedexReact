@@ -25,7 +25,7 @@ const usePokemonDisplay = () => {
       fetchAbilitiesData();
       fetchEvolutions(chain);
     }
-  }, [species]);
+  }, [selectedPokemon]);
 
   const formatWeight = (weightInGrams) => {
     const weightInKilograms = weightInGrams / 10;
