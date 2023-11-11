@@ -11,7 +11,6 @@ const usePokemonDisplay = () => {
   const [species, setSpecies] = useState({});
   const [abilities, setAbilities] = useState([]);
   const [evolutions, setEvolutions] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const chainURL = species.evolution_chain && species.evolution_chain.url;
   const speciesURL = selectedPokemon && selectedPokemon.species.url;
@@ -46,8 +45,6 @@ const usePokemonDisplay = () => {
         return response;
       } catch (error) {
         console.error("Error fetching Pokemon Ability", error);
-      } finally {
-        setLoading(false);
       }
     });
     const fetchedAbilites = await Promise.all(promises);
@@ -88,7 +85,6 @@ const usePokemonDisplay = () => {
     species,
     abilities,
     evolutions,
-    loading,
   };
 };
 

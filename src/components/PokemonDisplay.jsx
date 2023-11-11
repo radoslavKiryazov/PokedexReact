@@ -8,7 +8,7 @@ import Abilities from "./Abilities";
 
 const PokemonDisplay = () => {
   const { selectedPokemon } = usePokemonContext();
-  const { species, abilities, evolutions, loading } = usePokemonDisplay();
+  const { species, abilities, evolutions} = usePokemonDisplay();
   const colorVariant =
     selectedPokemon && buildDynamicColor(selectedPokemon.types);
 
@@ -23,11 +23,7 @@ const PokemonDisplay = () => {
         <Evolution evolutions={evolutions} colorVariant={colorVariant} />
       </div>
       <StatsPanel colorVariant={colorVariant} />
-      {loading ? (
-        <h1 className="font-pokemonName text-2xl">LOADING</h1>
-      ) : (
-        <Abilities abilities={abilities} colorVariant={colorVariant} />
-      )}
+      <Abilities abilities={abilities} colorVariant={colorVariant} />
     </div>
   );
 };
