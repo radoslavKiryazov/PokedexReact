@@ -8,7 +8,7 @@ import Abilities from "./Abilities";
 
 const PokemonDisplay = () => {
   const { selectedPokemon } = usePokemonContext();
-  const { species, abilities, evolutions} = usePokemonDisplay();
+  const { species, abilities, evolutions } = usePokemonDisplay();
   const colorVariant =
     selectedPokemon && buildDynamicColor(selectedPokemon.types);
 

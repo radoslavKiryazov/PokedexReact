@@ -40,7 +40,6 @@ const usePokemonDisplay = () => {
   const fetchAbilitiesData = async () => {
     const promises = selectedPokemon.abilities.map(async (ability) => {
       try {
-        setLoading(true);
         const response = await getAbility(ability.ability.url);
         return response;
       } catch (error) {
