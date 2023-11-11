@@ -25,6 +25,14 @@ const usePokemonDisplay = () => {
     }
   }, [selectedPokemon]);
 
+  useEffect(() => {
+    if (species.evolution_chain) {
+      const chain = species.evolution_chain.url;
+      fetchAbilitiesData();
+      fetchEvolutions(chain);
+    }
+  }, [species]);
+
   const formatWeight = (weightInGrams) => {
     const weightInKilograms = weightInGrams / 10;
     return weightInKilograms + " kg";
@@ -33,10 +41,13 @@ const usePokemonDisplay = () => {
   const fetchAbilitiesData = async () => {
     const promises = selectedPokemon.abilities.map(async (ability) => {
       try {
+        setLoading(true);
         const response = await getAbility(ability.ability.url);
         return response;
       } catch (error) {
         console.error("Error fetching Pokemon Ability", error);
+      } finally {
+        setLoading(false);
       }
     });
     const fetchedAbilites = await Promise.all(promises);
@@ -77,6 +88,7 @@ const usePokemonDisplay = () => {
     species,
     abilities,
     evolutions,
+    loading,
   };
 };
 
