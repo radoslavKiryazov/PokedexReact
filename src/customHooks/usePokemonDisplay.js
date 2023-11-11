@@ -11,15 +11,13 @@ const usePokemonDisplay = () => {
   const [species, setSpecies] = useState({});
   const [abilities, setAbilities] = useState([]);
   const [evolutions, setEvolutions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const chainURL = species.evolution_chain && species.evolution_chain.url;
   const speciesURL = selectedPokemon && selectedPokemon.species.url;
 
   useEffect(() => {
     fetchSpecies();
-  }, [selectedPokemon]);
-
-  useEffect(() => {
     if (species.evolution_chain) {
       const chain = species.evolution_chain.url;
       fetchAbilitiesData();
