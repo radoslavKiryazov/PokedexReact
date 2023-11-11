@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const PokemonContext = createContext();
 
@@ -13,7 +13,7 @@ export const PokemonProvider = ({ children }) => {
     next: null,
     previous: null,
   });
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1); //this entire context class might be overkill, but I wanted to try it out
 
   return (
     <PokemonContext.Provider
