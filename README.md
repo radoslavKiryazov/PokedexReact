@@ -2,7 +2,7 @@
 
 This is a Pokedex app built with React Native and Tailwind CSS. It fetches data from the PokeAPI and displays information about each Pokemon, including its name, image, type, and stats.
 
-### `[Check it out here.](https://radoslavkiryazov.github.io/PokedexReact/)`
+### [Check it out here.](https://radoslavkiryazov.github.io/PokedexReact/)
 
 
 ![image](https://github.com/radoslavKiryazov/PokedexReact/assets/100125411/2870088a-b430-481b-afa6-3785442ec7da)
